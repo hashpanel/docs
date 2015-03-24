@@ -1,0 +1,222 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "v1.0",
+        "title": "hashpanel",
+        "description": "hashpanel REST API",
+        "contact": {
+          "name": "Travis Webb", 
+          "url": "hashpanel.io",
+          "email": "tjwebb@hashpanel.io"
+        },
+        "license": {
+          "name": "MIT",
+          "url": "http://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "api.hashpanel.io",
+    "basePath": "/api/v1",
+    "schemes": [ "https" ],
+    "paths": {
+        "/minerdevice": {
+            "get": {
+                "operationId": "MinerDevice.find",
+                "description": "Returns a list of MinerDevices",
+                "produces": [
+                  "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "title": "MinerDeviceCollection",
+                            "type": "array",
+                            "items": {
+                                "title": "MinerDevice",
+                                "type": "object"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/pool": {
+            "get": {
+                "operationId": "Pool.find",
+                "description": "Returns a list of Pool",
+                "produces": [
+                  "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "title": "PoolCollection",
+                            "type": "array",
+                            "items": {
+                                "title": "Pool",
+                                "type": "object"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/miner": {
+            "get": {
+                "operationId": "Miner.find",
+                "description": "Returns a list of Miner",
+                "produces": [
+                  "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "title": "MinerCollection",
+                            "type": "array",
+                            "items": {
+                                "title": "Miner",
+                                "type": "object"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create a new Miner",
+                "operationId": "Miner.create",
+                "produces": [
+                  "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "title": "MinerCollection",
+                            "type": "array",
+                            "items": {
+                                "title": "Miner",
+                                "type": "object"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/miner/<id>": {
+            "get": {
+                "operationId": "Miner.findOneById",
+                "description": "Return a particular Miner",
+                "produces": [
+                  "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "title": "Miner",
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "operationId": "Miner.update",
+                "description": "Update a particular Miner",
+                "produces": [
+                  "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "title": "Miner",
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/miner/<id>/state": {
+            "get": {
+                "operationId": "MinerState.findOneByMiner",
+                "description": "Return the most recent state of a particular Miner",
+                "produces": [
+                  "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "title": "MinerState",
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/miner/<id>/history": {
+            "get": {
+                "operationId": "MinerState.findByMiner",
+                "description": "Return the state history of a particular Miner",
+                "produces": [
+                  "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "title": "MinerStateCollection",
+                            "type": "object",
+                            "items": {
+                                "title": "MinerState",
+                                "type": "object"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/miner/<id>/worker": {
+            "get": {
+                "operationId": "PoolWorker.findByMiner",
+                "description": "Return all PoolWorkers for a particular Miner",
+                "produces": [
+                  "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "title": "PoolWorkerCollection",
+                            "type": "array",
+                            "items": {
+                                "title": "PoolWorker",
+                                "type": "object"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/poolworker": {
+            "post": {
+                "operationId": "PoolWorker.create",
+                "description": "Create a new PoolWorker",
+                "produces": [
+                  "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "title": "PoolWorker",
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
